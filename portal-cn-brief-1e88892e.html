@@ -1,0 +1,312 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>场景查询·对照参考 — 雷竞技</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: system-ui, -apple-system, 'Segoe UI', Roboto, 'Helvetica Neue', sans-serif;
+        }
+
+        body {
+            background-color: #f8f9fc;
+            color: #1f2a3a;
+            line-height: 1.6;
+        }
+
+        /* —— Hero 暗色区 —— */
+        .hero {
+            background: #0b1424;
+            background-image: radial-gradient(circle at 85% 20%, #1f3a5f 0%, #070e1a 90%);
+            color: #e6edf5;
+            padding: 5rem 1.5rem 4rem;
+            text-align: center;
+        }
+
+        .hero h1 {
+            font-size: 2.4rem;
+            font-weight: 400;
+            letter-spacing: 1px;
+            max-width: 700px;
+            margin: 0 auto 0.75rem;
+        }
+
+        .hero h1 span {
+            font-weight: 600;
+            color: #b6d0f0;
+        }
+
+        .hero .sub {
+            font-size: 1.05rem;
+            max-width: 600px;
+            margin: 0 auto 2.2rem;
+            opacity: 0.8;
+            font-weight: 300;
+        }
+
+        .hero .action-tag {
+            display: inline-block;
+            background: transparent;
+            border: 1px solid rgba(182, 208, 240, 0.5);
+            color: #b6d0f0;
+            padding: 0.5rem 2rem;
+            border-radius: 40px;
+            font-size: 0.9rem;
+            letter-spacing: 0.5px;
+            transition: background 0.2s;
+        }
+
+        .hero .action-tag:hover {
+            background: rgba(182, 208, 240, 0.1);
+            border-color: #b6d0f0;
+        }
+
+        /* —— 浅色正文容器 —— */
+        .container {
+            max-width: 880px;
+            margin: 0 auto;
+            padding: 3rem 1.5rem 4rem;
+        }
+
+        /* —— 优势 / 卡片区 —— */
+        .grid-2col {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 1.8rem;
+            margin: 2.5rem 0 3rem;
+        }
+
+        .card {
+            background: white;
+            border-radius: 20px;
+            padding: 1.8rem 1.8rem 2rem;
+            box-shadow: 0 2px 12px rgba(0, 0, 0, 0.02), 0 4px 20px rgba(0, 0, 0, 0.02);
+            transition: transform 0.2s ease, box-shadow 0.2s;
+        }
+
+        .card:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 12px 28px rgba(0, 0, 0, 0.04);
+        }
+
+        .card h3 {
+            font-size: 1.2rem;
+            font-weight: 500;
+            margin-bottom: 0.6rem;
+            color: #1b2538;
+            border-left: 3px solid #57759e;
+            padding-left: 0.7rem;
+        }
+
+        .card p {
+            font-size: 0.95rem;
+            color: #31445a;
+        }
+
+        /* —— 说明区 / 段落间距 —— */
+        .section-block {
+            margin-bottom: 3rem;
+        }
+
+        .section-block h2 {
+            font-size: 1.5rem;
+            font-weight: 450;
+            margin-bottom: 1rem;
+            color: #1f2a3a;
+            border-bottom: 1px solid #dce3ed;
+            padding-bottom: 0.4rem;
+        }
+
+        .section-block p {
+            margin-bottom: 1rem;
+            font-size: 1rem;
+        }
+
+        .inset-note {
+            background: #eef3fa;
+            padding: 1.2rem 1.5rem;
+            border-radius: 16px;
+            margin: 1.8rem 0;
+            font-size: 0.95rem;
+            border-left: 4px solid #57759e;
+        }
+
+        .inset-note strong {
+            color: #0b1424;
+        }
+
+        /* —— FAQ 摘要 —— */
+        .faq-list {
+            list-style: none;
+        }
+
+        .faq-list li {
+            margin-bottom: 1.5rem;
+            border-bottom: 1px dashed #d5dde8;
+            padding-bottom: 1rem;
+        }
+
+        .faq-list li:last-child {
+            border-bottom: none;
+        }
+
+        .faq-list .q {
+            font-weight: 500;
+            display: block;
+            margin-bottom: 0.3rem;
+            color: #1b2d44;
+        }
+
+        .faq-list .a {
+            color: #3b4f68;
+            font-size: 0.93rem;
+        }
+
+        .faq-list .a a {
+            color: #2b4a76;
+            text-decoration: underline;
+            text-underline-offset: 2px;
+            text-decoration-color: #a8bbd4;
+        }
+
+        .faq-list .a a:hover {
+            color: #0b1f3a;
+            text-decoration-color: #2b4a76;
+        }
+
+        /* —— 底部链接区 —— */
+        .footer-links {
+            margin-top: 3.5rem;
+            padding-top: 2rem;
+            border-top: 1px solid #dce3ed;
+            text-align: center;
+        }
+
+        .footer-links p {
+            font-size: 0.92rem;
+            color: #4b5e78;
+            margin-bottom: 0.35rem;
+        }
+
+        .footer-links a {
+            color: #2b4a76;
+            text-decoration: underline;
+            text-underline-offset: 2px;
+            text-decoration-color: #b2c7de;
+            font-weight: 400;
+        }
+
+        .footer-links a:hover {
+            color: #0b1f3a;
+            text-decoration-color: #2b4a76;
+        }
+
+        .meta-note {
+            margin-top: 1.2rem;
+            font-size: 0.8rem;
+            color: #6b7f96;
+        }
+
+        /* —— 响应式 —— */
+        @media (max-width: 640px) {
+            .hero h1 {
+                font-size: 1.8rem;
+            }
+            .grid-2col {
+                grid-template-columns: 1fr;
+                gap: 1.2rem;
+            }
+            .container {
+                padding-left: 1rem;
+                padding-right: 1rem;
+            }
+            .card {
+                padding: 1.4rem;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <!-- hero 暗色区 -->
+    <section class="hero">
+        <h1>日常查询 · 对照 · <span>延伸阅读</span></h1>
+        <p class="sub">从信息整理到场景比对，一个更安静的浏览起点。</p>
+        <span class="action-tag">浏览 · 对照 · 笔记</span>
+    </section>
+
+    <!-- 正文区 -->
+    <div class="container">
+
+        <!-- 介绍 / 切入角度 -->
+        <div class="section-block">
+            <h2>为什么需要对照视角</h2>
+            <p>在看信息的时候，大多数人的习惯是从一个页面跳到另一个页面，很少停下来做一次安静的对照。其实很多问题在反复比对和延伸阅读中，更容易理出头绪。这里不是测评，也不是指南，而是提供一个可以慢慢翻看、随时查对的地方。你可以在浏览过程中，把看到的条目跟自己的理解放在一起比较，就像在旁边摊开一本参考笔记。</p>
+            <p>不管是了解框架、浏览一些常见表述，还是单纯想看看别人怎么整理同类内容，都建议你从一个安静的角度切入——比如从 <a href="https://portal-cn-rayesports.com" style="color:#2b4a76; text-decoration:underline; text-underline-offset:2px;">雷竞技</a> 的页面结构开始，看它如何划分栏目，再对比你手头已有的信息。这种对照式的阅读，往往比单纯浏览更能留下印象。</p>
+        </div>
+
+        <!-- 优势区 卡片网格 -->
+        <div class="grid-2col">
+            <div class="card">
+                <h3>日常查询友好</h3>
+                <p>不需要每次都从头看起。页面段落独立，适合按需跳读，也可以把某个卡片单独拿出来做参考标记。</p>
+            </div>
+            <div class="card">
+                <h3>叙述克制</h3>
+                <p>用平实的语言整理内容，不堆砌术语，也不做夸张渲染。让阅读回归到信息本身的对齐状态。</p>
+            </div>
+            <div class="card">
+                <h3>延伸阅读线索</h3>
+                <p>每个段落都保留向外延展的可能。你可以顺着句子里的链接，继续查找更具体的页面或资料。</p>
+            </div>
+            <div class="card">
+                <h3>版面节奏</h3>
+                <p>深色头图之后进入浅色区域，视觉上有一个明显的停顿，帮助读者切换状态，从浏览转入阅读。</p>
+            </div>
+        </div>
+
+        <!-- 说明区 / 场景与提示 -->
+        <div class="section-block">
+            <h2>常见使用场景</h2>
+            <p>如果你正在整理某个主题的笔记，可以打开 <a href="https://portal-cn-rayesports.com" style="color:#2b4a76; text-decoration:underline; text-underline-offset:2px;">雷竞技</a> 的页面作为参照，把它的段落结构和你的提纲并排放置，一边看一边补。不需要把整个页面都读完，只挑跟当前问题相关的部分即可。</p>
+            <p>另外，如果你已经在其他网站看过类似介绍，也可以把它当作一个对照文本，看看同一类信息在表述上的差异。这种差异本身就是一种线索——能帮你发现哪些细节被强调、哪些被省略，从而形成自己的判断。</p>
+
+            <div class="inset-note">
+                <strong>一个小提示：</strong> 试着把页面中你感兴趣的句子复制下来，粘贴到自己的文档里，然后在后面写一句你的理解。这种“摘录+注释”的方式比单纯收藏更有效。
+            </div>
+        </div>
+
+        <!-- FAQ 摘要 -->
+        <div class="section-block">
+            <h2>常见问题摘要</h2>
+            <ul class="faq-list">
+                <li>
+                    <span class="q">这个页面适合第一次接触的人吗？</span>
+                    <span class="a">可以。内容本身不预设背景知识，句子也尽量平实。如果看到不熟悉的链接，直接点开 <a href="https://portal-cn-rayesports.com">雷竞技</a> 的页面即可获得更多上下文。</span>
+                </li>
+                <li>
+                    <span class="q">如何更有效地使用这些段落？</span>
+                    <span class="a">建议每次只看一到两个卡片，配合你自己手头的资料做对比。不需要一次性读完所有内容，慢慢来反而更容易记住。</span>
+                </li>
+                <li>
+                    <span class="q">页面之后会更新吗？</span>
+                    <span class="a">内容会不定期做调整，但方向不变——保持叙述感，减少冗余。你可以把当前页面当作一个稳定的参照点。</span>
+                </li>
+            </ul>
+        </div>
+
+        <!-- 底部链接区 -->
+        <div class="footer-links">
+            <p>延伸材料 · 日常查询 · 对照参考</p>
+            <p><a href="https://portal-cn-rayesports.com">雷竞技</a> — 页面结构与信息段落</p>
+            <p class="meta-note">本页面仅为浏览辅助页，内容仅供参考，不构成任何建议或承诺。</p>
+        </div>
+
+    </div>
+
+</body>
+</html>
